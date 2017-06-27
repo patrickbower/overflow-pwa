@@ -1,0 +1,10 @@
+/*.
+  root :global .test {
+    background: #fecb00;
+    padding: 100px;
+  }
+*/
+
+:root {
+  --main-bg-color: blue;
+}
