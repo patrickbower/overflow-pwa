@@ -1,5 +1,94 @@
 .card {
-  background: var(--main-bg-color);
+  background: var(--color-white);
   width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 100px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* head */
+
+.head {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 44px;
+  padding-bottom: 15px;
+}
+
+.date {
+  font-size: 14px;
+  color: var(--color-wool-grey);
+}
+
+/* progress */
+
+.progress {
+  width: 100%;
+  height: 2px;
+  background: var(--color-aluminum-grey);
+  position: relative;
+}
+
+.progress:after {
+  content: '';
+  width: 25%;
+  height: 2px;
+  background: var(--color-tomato);
+  display: block;
+}
+
+/* body */
+
+.body {
+  padding: 50px 20px 20px 20px;
+}
+
+.list {
+  margin-bottom: 20px;
+}
+
+.item {
+  padding-bottom: 30px;
+  color: var(--color-cable-grey);
+}
+
+.edit {
+  color: var(--color-wool-grey);
+  font-size: 14px;
+}
+
+.edit:hover {
+  color: var(--color-cable-grey);
+}
+
+/* foot */
+
+.foot {
   padding: 20px;
+}
+
+.section {
+  color: var(--color-tomato);
+  padding-bottom: 30px;
+}
+
+.newInput {
+  -webkit-apperance: none;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid var(--color-wool-grey);
+  padding: 0 0 5px 0;
+  font-size: 14px;
+  color: var(--color-cable-grey);
+}
+
+.newInput::placeholder {
+  color: var(--color-aluminum-grey);
+}
+
+.newInput:focus {
+  outline: none;
 }
