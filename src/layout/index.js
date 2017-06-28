@@ -1,7 +1,9 @@
 // page
 import React, { Component } from 'react';
-import styles from '../styles/index.css'
 import Layout from './main'
+
+import reset from '../styles/reset.css'
+import styles from '../styles/index.css'
 
 class Page extends Component {
   render() {

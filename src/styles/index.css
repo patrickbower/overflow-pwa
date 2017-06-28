@@ -1,10 +1,36 @@
-/*.
-  root :global .test {
-    background: #fecb00;
-    padding: 100px;
-  }
-*/
-
 :root {
-  --main-bg-color: blue;
+  --color-white: #ffffff;
+  --color-tomato: #E14F49;
+  --color-gun-grey: #333333;
+  --color-cable-grey: #666666;
+  --color-wool-grey: #B3B3B3;
+  --color-aluminum-grey: #E6E6E6;
+  --font-weight-regular: 400;
+  --font-weight-bold: 600;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: var(--font-weight-regular);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" off;
+  letter-spacing: -0.0313em; /* 16 * 0.0625 = 1px */
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: var(--font-weight-regular);
+}
+
+button {
+  -webkit-appearance: none;
+  border: none;
+  padding: 0;
+  background: none;
+  font: inherit;
+}
+
+button:hover {
+  cursor: pointer;
 }
