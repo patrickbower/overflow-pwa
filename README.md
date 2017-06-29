@@ -2,7 +2,7 @@
 
 Remix of my little todo app OverFlow. I'll be using this as an oppatunity to explore new technology and
 
-## Dependancies and Standards
+## Dependencies and Standards
 
 * Core language is JavaScript using [React via modified create-react-app](https://github.com/facebookincubator/create-react-app)
 * Hack database using [Trello API](https://developers.trello.com/advanced-reference/board#get-1-boards-board-id-lists)
