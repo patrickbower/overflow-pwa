@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+]>
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" overflow="visible" enable-background="new 0 0 16 16"
+	 xml:space="preserve">
+<defs>
+</defs>
+<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="0.707" y1="14.826" x2="14.823" y2="0.707"/>
+<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="0.707" y1="0.707" x2="14.823" y2="14.826"/>
+</svg>
+
+<!-- Embeded svg sprite reference -->
+<svg display="none" xmlns="http://www.w3.org/2000/svg">
+ <symbol id="icon-c2dc855d" viewBox="0 0 16 16" overflow="visible" >
+ <path fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="10" d="M.707 14.826L14.823.707M.707.707l14.116 14.119"/>
+ </symbol>
+</svg>
+
+<!-- Later in the code, use it... -->
+<svg class="icon-c2dc855d">
+ <use xlink:href="#icon-c2dc855d" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+</svg>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+]>
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="125px" height="125px" viewBox="0 0 125 125" overflow="visible" enable-background="new 0 0 125 125"
+	 xml:space="preserve">
+<defs>
+</defs>
+<path d="M45.371,75h-1.957v-4.264l-4,5.479v14.013V91h0.937h2.481h2.539c4.291,0,7.768-3.709,7.768-8
+	C53.139,78.711,49.662,75,45.371,75z"/>
+<path d="M81.99,0L0,81.99l42.592,42.592l81.99-81.99L81.99,0z M44.578,102h-2.164v13.48l-14-13.355V68.219V64h3.922h5.666h6.576
+	C55.04,64,63.52,72.541,63.52,82.998C63.52,93.463,55.04,102,44.578,102z"/>
+</svg>
+
+<!-- Embeded svg sprite reference -->
+<svg display="none" xmlns="http://www.w3.org/2000/svg">
+ <symbol id="icon-fc6bcae9" viewBox="0 0 125 125" overflow="visible" >
+ <path d="M45.371 75h-1.957v-4.264l-4 5.479V91H45.371c4.291 0 7.768-3.709 7.768-8 0-4.289-3.477-8-7.768-8z"/>
+ <path d="M81.99 0L0 81.99l42.592 42.592 81.99-81.99L81.99 0zM44.578 102h-2.164v13.48l-14-13.355V64h16.164C55.04 64 63.52 72.541 63.52 82.998 63.52 93.463 55.04 102 44.578 102z"/>
+ </symbol>
+</svg>
+
+<!-- Later in the code, use it... -->
+<svg class="icon-fc6bcae9">
+ <use xlink:href="#icon-fc6bcae9" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+</svg>
