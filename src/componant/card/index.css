@@ -55,6 +55,20 @@
   color: var(--color-cable-grey);
 }
 
+.iconTick {
+  width: 10px;
+  height: 10px;
+  color: var(--color-cable-grey);
+  float: right;
+}
+
+.iconClose {
+  width: 8px;
+  height: 8px;
+  color: var(--color-cable-grey);
+  float: right;
+}
+
 .edit {
   color: var(--color-wool-grey);
   font-size: 14px;
