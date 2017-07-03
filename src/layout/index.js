@@ -2,9 +2,8 @@
 import React, { Component } from "react";
 import Layout from "./main";
 
-/* eslint-disable */
+// eslint-disable-next-line
 import reset from "../styles/reset.css";
-/* eslint-enable */
 
 import styles from "../styles/index.css";
 import IconSprite from "../componant/IconSprite";
