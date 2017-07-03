@@ -1,0 +1,17 @@
+/* body */
+
+.list {
+  margin-bottom: 20px;
+}
+
+.item {
+  padding-bottom: 30px;
+  color: var(--color-cable-grey);
+}
+
+.iconTick {
+  width: 10px;
+  height: 10px;
+  color: var(--color-cable-grey);
+  float: right;
+}

@@ -1,0 +1,16 @@
+/* progress */
+
+.progress {
+  width: 100%;
+  height: 2px;
+  background: var(--color-aluminum-grey);
+  position: relative;
+}
+
+.progress:after {
+  content: '';
+  width: 25%;
+  height: 2px;
+  background: var(--color-tomato);
+  display: block;
+}

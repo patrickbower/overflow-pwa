@@ -5,13 +5,23 @@
   --color-cable-grey: #666666;
   --color-wool-grey: #B3B3B3;
   --color-aluminum-grey: #E6E6E6;
+
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+
   --font-weight-regular: 400;
   --font-weight-bold: 600;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-16);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,6 +39,7 @@ button {
   padding: 0;
   background: none;
   font: inherit;
+  outline: none;
 }
 
 button:hover {

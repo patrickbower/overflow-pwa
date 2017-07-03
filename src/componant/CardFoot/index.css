@@ -1,0 +1,44 @@
+.section {
+  color: var(--color-tomato);
+  padding-bottom: 30px;
+  font-size: 14px;
+}
+
+.listDone {
+  composes: list from "../CardBody/index.css";
+}
+
+.itemDone {
+  composes: item from "../CardBody/index.css";
+  padding-bottom: 20px;
+  font-size: 12px;
+}
+
+.iconClose {
+  width: 8px;
+  height: 8px;
+  color: var(--color-wool-grey);
+  float: right;
+}
+
+.iconClose:hover {
+  color: var(--color-cable-grey);
+}
+
+.newInput {
+  -webkit-apperance: none;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid var(--color-wool-grey);
+  padding: 0 0 5px 0;
+  font-size: 14px;
+  color: var(--color-cable-grey);
+}
+
+.newInput::placeholder {
+  color: var(--color-aluminum-grey);
+}
+
+.newInput:focus {
+  outline: none;
+}
