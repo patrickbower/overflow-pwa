@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import styles from './index.css';
+import React, { Component } from "react";
+import styles from "./index.css";
 
-import Card from '../../componant/card'
+import Card from "../../componant/Card";
 
 class Main extends Component {
   render() {
