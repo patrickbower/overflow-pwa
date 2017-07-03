@@ -2,9 +2,11 @@
 import React, { Component } from "react";
 import Layout from "./main";
 
-import Icons from "../componant/Icons";
+/* eslint-disable */
 import reset from "../styles/reset.css";
+/* eslint-enable */
 import styles from "../styles/index.css";
+import Icons from "../componant/Icons";
 
 class Page extends Component {
   render() {
