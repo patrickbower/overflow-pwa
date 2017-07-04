@@ -6,33 +6,17 @@ import Progress from "../Progress";
 import CardBody from "../CardBody";
 import CardFoot from "../CardFoot";
 
-import * as trello from "../../utils/trello";
-
 class Card extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      foot: false,
-      cards: null
+      foot: false
     };
-
-    this.getAllCards();
   }
 
   toggleFoot() {
     this.setState({ foot: !this.state.foot });
-  }
-
-  getAllCards() {
-    trello.request(
-      trello.query(trello.get.all),
-      this.returnAllCards.bind(this)
-    );
-  }
-
-  returnAllCards(payload) {
-    this.setState({ cards: payload });
   }
 
   render() {
