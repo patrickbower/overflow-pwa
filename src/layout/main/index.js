@@ -17,7 +17,7 @@ class Main extends Component {
 
   getAllCards() {
     trello.request(
-      trello.query(trello.get.all),
+      trello.query(trello.getAll()),
       this.returnAllCards.bind(this)
     );
   }
@@ -32,7 +32,7 @@ class Main extends Component {
     } else {
       return (
         <div className={styles.main}>
-          {this.state.cards.map(card => <Card key={card.id} />)}
+          {this.state.cards.map(card => <Card key={card.id} payload={card} />)}
         </div>
       );
     }
