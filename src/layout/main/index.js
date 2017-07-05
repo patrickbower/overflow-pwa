@@ -26,22 +26,13 @@ class Main extends Component {
     this.setState({ cards: payload });
   }
 
-  thing() {
-    this.state.cards.map(function(card) {
-      return card;
-    });
-  }
-
   render() {
-    // console.log("this.state.cards", this.state.cards);
-    // console.log(this.thing());
-
     if (this.state.cards === null) {
       return <p>loading</p>;
     } else {
       return (
         <div className={styles.main}>
-          <Card />
+          {this.state.cards.map(card => <Card key={card.id} />)}
         </div>
       );
     }
