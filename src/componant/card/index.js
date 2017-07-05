@@ -10,6 +10,8 @@ class Card extends Component {
   constructor(props) {
     super(props);
 
+    // console.log("list payload", this.props.payload);
+
     this.state = {
       foot: false
     };
@@ -20,9 +22,10 @@ class Card extends Component {
   }
 
   render() {
+    const { name, id } = this.props.payload;
     return (
       <div className={styles.card}>
-        <CardHead />
+        <CardHead title={name} id={id} />
         <Progress />
         <div className={styles.body}>
           <CardBody />
