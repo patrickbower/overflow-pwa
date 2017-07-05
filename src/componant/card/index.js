@@ -12,11 +12,9 @@ class Card extends Component {
 
     this.state = {
       foot: false,
-      listToDo: null,
-      listDone: null
+      listToDo: [],
+      listDone: []
     };
-
-    this.sortLists();
   }
 
   toggleFoot() {
@@ -36,10 +34,10 @@ class Card extends Component {
       }
     }
 
-    this.setState({
+    return {
       listToDo: todoArr,
       listDone: doneArr
-    });
+    };
   }
 
   render() {
