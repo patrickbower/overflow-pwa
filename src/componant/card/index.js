@@ -10,19 +10,41 @@ class Card extends Component {
   constructor(props) {
     super(props);
 
-    // console.log("list payload", this.props.payload);
-
     this.state = {
-      foot: false
+      foot: false,
+      listToDo: null,
+      listDone: null
     };
+
+    this.sortLists();
   }
 
   toggleFoot() {
     this.setState({ foot: !this.state.foot });
   }
 
+  sortLists() {
+    const { cards } = this.props.payload;
+    let doneArr = [];
+    let todoArr = [];
+
+    for (let card of cards) {
+      if (card.labels.length === 0) {
+        todoArr.push(card);
+      } else if (card.labels[0].name === "done") {
+        doneArr.push(card);
+      }
+    }
+
+    this.setState({
+      listToDo: todoArr,
+      listDone: doneArr
+    });
+  }
+
   render() {
     const { name, id } = this.props.payload;
+    console.log(this.state);
     return (
       <div className={styles.card}>
         <CardHead title={name} id={id} />
