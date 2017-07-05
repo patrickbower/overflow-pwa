@@ -60,7 +60,6 @@ class CardHead extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className={styles.head}>
         <h2 className={styles.title}>
