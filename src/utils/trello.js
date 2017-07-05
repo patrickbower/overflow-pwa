@@ -8,7 +8,7 @@ export function request(url, callBack) {
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      callBack(data);
+      callBack(data)
     })
     .catch(function(err) {
       throw new Error(err);
