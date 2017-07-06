@@ -6,7 +6,7 @@ import Progress from "../Progress";
 import CardBody from "../CardBody";
 import CardFoot from "../CardFoot";
 
-import * as trello from "../../utils/trello";
+import * as middleware from "../../middleware/listName";
 
 class Card extends Component {
   constructor(props) {
@@ -14,28 +14,25 @@ class Card extends Component {
 
     this.state = {
       foot: false,
-      cards: null
+      lists: {}
     };
-
-    this.getAllCards();
   }
 
   toggleFoot() {
     this.setState({ foot: !this.state.foot });
   }
 
-  getAllCards() {
-    trello.request(
-      trello.query(trello.get.all),
-      this.returnAllCards.bind(this)
-    );
+  async getData() {
+    const lists = await middleware.listName();
+    this.setState({ lists: lists });
   }
 
-  returnAllCards(payload) {
-    this.setState({ cards: payload });
+  componentDidMount() {
+    this.getData();
   }
 
   render() {
+    console.log("render", this.state);
     return (
       <div className={styles.card}>
         <CardHead />
