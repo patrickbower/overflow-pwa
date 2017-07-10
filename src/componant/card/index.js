@@ -42,7 +42,6 @@ class Card extends Component {
 
   render() {
     const { name, id } = this.props.payload;
-    console.log(this.state);
     return (
       <div className={styles.card}>
         <CardHead title={name} id={id} />

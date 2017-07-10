@@ -4,6 +4,8 @@ import styles from "./index.css";
 import Card from "../../componant/Card";
 import * as trello from "../../utils/trello";
 
+import lists from "../../middleware/getLists";
+
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -27,6 +29,11 @@ class Main extends Component {
   }
 
   render() {
+
+    lists().then((list) => {
+      console.log(list);
+    });
+
     if (this.state.cards === null) {
       return <p>loading</p>;
     } else {
