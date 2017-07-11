@@ -6,12 +6,15 @@ import Progress from '../Progress';
 import CardBody from '../CardBody';
 import CardFoot from '../CardFoot';
 
+import * as middleware_todo from '../../middleware/todo';
+
 class Card extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      foot: this.props.footer
+      foot: this.props.footer,
+      todo: []
     };
   }
 
@@ -19,7 +22,18 @@ class Card extends Component {
     this.setState({ foot: !this.state.foot });
   }
 
+  async getTodoList() {
+    const { id } = this.props.list;
+    const todoList = await middleware_todo.get(id);
+    this.setState({ todo: todoList });
+  }
+
+  componentDidMount() {
+    this.getTodoList();
+  }
+
   render() {
+    console.log('render', this.state);
     const { list } = this.props;
     return (
       <div className={styles.card}>
