@@ -1,7 +1,7 @@
 import config from "./config";
 
 export const get = {
-  all: `/1/boards/${config.boardId}/lists?`
+  lists: `/1/boards/${config.boardId}/lists?`
 };
 
 export function query(action) {
