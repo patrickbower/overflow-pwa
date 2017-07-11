@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import styles from "./index.css";
+import React, { Component } from 'react';
+import styles from './index.css';
 
 class CardBody extends Component {
   render() {
     return (
       <ul className={styles.list}>
         <li className={styles.item}>
-          Change money into euros
+          Change money to euros
           <a href="#">
             <svg className={styles.iconTick}>
               <use xlinkHref="#icon-tick" />

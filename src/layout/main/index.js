@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import styles from "./index.css";
+import React, { Component } from 'react';
+import styles from './index.css';
 
-import Card from "../../componant/Card";
+import List from '../../componant/List';
 
 class Main extends Component {
   render() {
     return (
       <div className={styles.main}>
-        <Card />
+        <List />
       </div>
     );
   }
