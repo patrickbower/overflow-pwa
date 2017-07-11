@@ -1,14 +1,19 @@
-import React, { Component } from "react";
-import styles from "./index.css";
+import React, { Component } from 'react';
+import styles from './index.css';
+
+import decodeDate from '../../utils/date';
 
 class CardHead extends Component {
   render() {
+    const { id, name } = this.props.list;
     return (
       <div className={styles.head}>
         <h2 className={styles.title}>
-          {this.props.list.name}
+          {name}
         </h2>
-        <time className={styles.date}>Wednesday 17 May</time>
+        <time className={styles.date}>
+          {decodeDate(id)}
+        </time>
       </div>
     );
   }
