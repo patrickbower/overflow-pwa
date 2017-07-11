@@ -14,7 +14,7 @@ class Card extends Component {
 
     this.state = {
       foot: false,
-      lists: {}
+      lists: []
     };
   }
 
@@ -31,11 +31,20 @@ class Card extends Component {
     this.getData();
   }
 
-  render() {
-    console.log("render", this.state);
+  // if (this.state.cards === null) {
+  //   return <p>loading</p>;
+  // } else {
+  //   return (
+  //     <div className={styles.main}>
+  //       {this.state.cards.map(card => <Card key={card.id} payload={card} />)}
+  //     </div>
+  //   );
+  // }
+
+  renderCard(list) {
     return (
-      <div className={styles.card}>
-        <CardHead />
+      <div className={styles.card} key={list.id}>
+        <CardHead list={list} />
         <Progress />
         <div className={styles.body}>
           <CardBody />
@@ -52,6 +61,18 @@ class Card extends Component {
         </div>
       </div>
     );
+  }
+
+  render() {
+    if (this.state.lists.length) {
+      return (
+        <div>
+          {this.state.lists.map(list => this.renderCard(list))}
+        </div>
+      );
+    } else {
+      return <p>loading</p>;
+    }
   }
 }
 

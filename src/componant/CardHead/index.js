@@ -5,7 +5,9 @@ class CardHead extends Component {
   render() {
     return (
       <div className={styles.head}>
-        <h2 className={styles.title}>Holiday</h2>
+        <h2 className={styles.title}>
+          {this.props.list.name}
+        </h2>
         <time className={styles.date}>Wednesday 17 May</time>
       </div>
     );
