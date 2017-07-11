@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './index.css';
 
 import Card from '../../componant/Card';
-import * as middleware from '../../middleware/listName';
+import * as middleware_list from '../../middleware/list';
 
 class List extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class List extends Component {
   }
 
   async getData() {
-    const lists = await middleware.listName();
+    const lists = await middleware_list.get();
     this.setState({ lists: lists });
   }
 

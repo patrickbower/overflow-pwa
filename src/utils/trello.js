@@ -1,8 +1,12 @@
-import config from "./config";
+import config from './config';
 
-export const get = {
-  lists: `/1/boards/${config.boardId}/lists?`
-};
+export function getLists() {
+  return `/1/boards/${config.boardId}/lists?`;
+}
+
+export function getCards(listId) {
+  return `/1/lists/${listId}/cards?`;
+}
 
 export function query(action) {
   return `${config.url}${action}&key=${config.key}&token=${config.token}`;

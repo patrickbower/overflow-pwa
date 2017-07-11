@@ -1,7 +1,7 @@
-import * as trello from "../utils/trello";
+import * as trello from '../utils/trello';
 
-export function listName() {
-  return trello.request(trello.get.lists).then(data => {
+export function get() {
+  return trello.request(trello.getLists()).then(data => {
     const lists = data.map(listItem => {
       return {
         name: listItem.name,
