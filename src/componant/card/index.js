@@ -11,7 +11,7 @@ class Card extends Component {
     super(props);
 
     this.state = {
-      foot: false
+      foot: this.props.footer
     };
   }
 
