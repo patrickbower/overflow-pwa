@@ -26,3 +26,16 @@ export function request(url) {
       throw new Error(err);
     });
 }
+
+export function post(url) {
+  return fetch(query(url), {
+    method: 'post'
+  })
+    .then(response => response.json())
+    .then(data => {
+      return data;
+    })
+    .catch(function(err) {
+      throw new Error(err);
+    });
+}
