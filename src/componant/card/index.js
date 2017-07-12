@@ -33,14 +33,14 @@ class Card extends Component {
   }
 
   render() {
-    console.log('render', this.state);
     const { list } = this.props;
+    const { todo } = this.state;
     return (
       <div className={styles.card}>
         <CardHead list={list} key={list.id} />
         <Progress />
         <div className={styles.body}>
-          <CardBody />
+          <CardBody todo={todo} />
           <button
             type="button"
             className={styles.edit}
