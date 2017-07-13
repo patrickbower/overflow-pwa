@@ -9,6 +9,7 @@ import CardFoot from '../CardFoot';
 import * as middleware_todo from '../../middleware/todo';
 import * as middleware_done from '../../middleware/done';
 import * as middleware_card from '../../middleware/card';
+import * as middleware_delete from '../../middleware/delete';
 
 class Card extends Component {
   constructor(props) {
@@ -44,6 +45,25 @@ class Card extends Component {
     });
   }
 
+  async deleteCard(cardId, listId) {
+    await middleware_delete.remove(cardId, listId);
+    this.removeItem(cardId, listId);
+  }
+
+  removeItem(cardId, listId) {
+    let { done } = this.state;
+
+    for (const [index, item] of done.entries()) {
+      if (item.id === cardId) {
+        done.splice(index, 1);
+      }
+    }
+
+    this.setState({
+      done: done
+    });
+  }
+
   componentDidMount() {
     this.getChildData();
   }
@@ -69,6 +89,7 @@ class Card extends Component {
           <CardFoot
             done={done}
             putNewCard={this.putNewCard.bind(this)}
+            deleteCard={this.deleteCard.bind(this)}
             id={list.id}
           />
         </div>

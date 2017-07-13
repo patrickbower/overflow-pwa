@@ -6,7 +6,8 @@ export function get(listId) {
       .map(card => {
         return {
           name: card.name,
-          label: card.labels.length > 0 ? card.labels[0].name : 'todo'
+          label: card.labels.length > 0 ? card.labels[0].name : 'todo',
+          id: card.id
         };
       })
       .filter(card => {
