@@ -8,6 +8,7 @@ import CardFoot from '../CardFoot';
 
 import * as middleware_todo from '../../middleware/todo';
 import * as middleware_done from '../../middleware/done';
+import * as middleware_card from '../../middleware/card';
 
 class Card extends Component {
   constructor(props) {
@@ -24,23 +25,33 @@ class Card extends Component {
     this.setState({ foot: !this.state.foot });
   }
 
-  async getTodoList() {
-    const { id } = this.props.list;
-    const todoList = await middleware_todo.get(id);
-    const doneList = await middleware_done.get(id);
+  async getChildData() {
+    const todoList = await middleware_todo.get(this.props.list.id);
+    const doneList = await middleware_done.get(this.props.list.id);
+
     this.setState({
       todo: todoList,
       done: doneList
     });
+
+    this.putNewCard.bind(this);
+  }
+
+  async putNewCard(listId, title) {
+    const newCard = await middleware_card.put(listId, title);
+    this.setState({
+      todo: this.state.todo.concat([newCard])
+    });
   }
 
   componentDidMount() {
-    this.getTodoList();
+    this.getChildData();
   }
 
   render() {
     const { list } = this.props;
     const { todo, done } = this.state;
+
     return (
       <div className={styles.card}>
         <CardHead list={list} key={list.id} />
@@ -55,7 +66,11 @@ class Card extends Component {
           </button>
         </div>
         <div className={this.state.foot ? styles.foot : styles.footHidden}>
-          <CardFoot done={done} />
+          <CardFoot
+            done={done}
+            putNewCard={this.putNewCard.bind(this)}
+            id={list.id}
+          />
         </div>
       </div>
     );
