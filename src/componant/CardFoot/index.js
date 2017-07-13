@@ -10,11 +10,20 @@ class CardFoot extends Component {
     this.newInput.value = '';
   }
 
+  deleteItem(event, cardId) {
+    event.preventDefault();
+    this.props.deleteCard(cardId, this.props.id);
+  }
+
   renderListItems(item, index) {
     return (
       <li className={styles.itemDone} key={index}>
         {item.name}
-        <a href="#">
+        <a
+          href="#"
+          onClick={event => {
+            this.deleteItem(event, this.props.done[index].id);
+          }}>
           <svg className={styles.iconClose}>
             <use xlinkHref="#icon-close" />
           </svg>

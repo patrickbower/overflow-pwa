@@ -12,12 +12,18 @@ export function putCard(listId, title) {
   return `/1/lists/${listId}/cards?name=${title}`;
 }
 
+export function deleteCard(cardId) {
+  return `/1/cards/${cardId}?`;
+}
+
 export function query(action) {
   return `${config.url}${action}&key=${config.key}&token=${config.token}`;
 }
 
 export function request(url) {
-  return fetch(query(url))
+  return fetch(query(url), {
+    method: 'GET'
+  })
     .then(response => response.json())
     .then(data => {
       return data;
@@ -29,7 +35,20 @@ export function request(url) {
 
 export function post(url) {
   return fetch(query(url), {
-    method: 'post'
+    method: 'POST'
+  })
+    .then(response => response.json())
+    .then(data => {
+      return data;
+    })
+    .catch(function(err) {
+      throw new Error(err);
+    });
+}
+
+export function remove(url) {
+  return fetch(query(url), {
+    method: 'DELETE'
   })
     .then(response => response.json())
     .then(data => {
