@@ -2,17 +2,16 @@ import * as trello from '../utils/trello';
 
 export function get(listId) {
   return trello.request(trello.getCards(listId)).then(data => {
-    const cards = data
-      .map(card => {
-        return {
-          name: card.name,
-          label: card.labels.length > 0 ? card.labels[0].name : 'todo'
+    let todos = {};
+    for (let item of data) {
+      if (item.labels.length === 0 || item.labels[0] === 'undefined') {
+        todos[item.id] = {
+          name: item.name,
+          id: item.id,
+          label: 'todo'
         };
-      })
-      .filter(card => {
-        return card.label === 'todo';
-      });
-
-    return cards;
+      }
+    }
+    return todos;
   });
 }

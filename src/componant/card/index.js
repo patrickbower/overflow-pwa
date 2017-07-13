@@ -17,8 +17,8 @@ class Card extends Component {
 
     this.state = {
       foot: this.props.footer,
-      todo: [],
-      done: []
+      todo: {},
+      done: {}
     };
 
     this.putNewCard.bind(this);
@@ -41,7 +41,7 @@ class Card extends Component {
   async putNewCard(listId, title) {
     const newCard = await middleware_card.put(listId, title);
     this.setState({
-      todo: this.state.todo.concat([newCard])
+      todo: Object.assign(this.state.todo, newCard)
     });
   }
 
@@ -51,16 +51,8 @@ class Card extends Component {
   }
 
   removeItem(cardId, listId) {
-    let { done } = this.state;
-
-    for (const [index, item] of done.entries()) {
-      if (item.id === cardId) {
-        done.splice(index, 1);
-      }
-    }
-
     this.setState({
-      done: done
+      done: delete this.state.done[cardId]
     });
   }
 

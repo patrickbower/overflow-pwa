@@ -27,7 +27,7 @@ class List extends Component {
       return (
         <div className={styles.container}>
           {this.state.lists.map(list =>
-            <Card list={list} footer={false} key={list.id} />
+            <Card list={list} footer={true} key={list.id} />
           )}
         </div>
       );

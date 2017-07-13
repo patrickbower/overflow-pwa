@@ -10,26 +10,28 @@ class CardFoot extends Component {
     this.newInput.value = '';
   }
 
-  deleteItem(event, cardId) {
+  deleteItem(event, card) {
     event.preventDefault();
-    this.props.deleteCard(cardId, this.props.id);
+    this.props.deleteCard(card.id, this.props.id);
   }
 
-  renderListItems(item, index) {
-    return (
-      <li className={styles.itemDone} key={index}>
-        {item.name}
-        <a
-          href="#"
-          onClick={event => {
-            this.deleteItem(event, this.props.done[index].id);
-          }}>
-          <svg className={styles.iconClose}>
-            <use xlinkHref="#icon-close" />
-          </svg>
-        </a>
-      </li>
-    );
+  renderListItems(done) {
+    return Object.keys(done).map((key, index) => {
+      return (
+        <li className={styles.itemDone} key={index}>
+          {done[key].name}
+          <a
+            href="#"
+            onClick={event => {
+              this.deleteItem(event, done[key]);
+            }}>
+            <svg className={styles.iconClose}>
+              <use xlinkHref="#icon-close" />
+            </svg>
+          </a>
+        </li>
+      );
+    });
   }
 
   render() {
@@ -38,7 +40,7 @@ class CardFoot extends Component {
       <div>
         <h3 className={styles.section}>Compleate</h3>
         <ul className={styles.listDone}>
-          {done.map((item, index) => this.renderListItems(item, index))}
+          {this.renderListItems(done)}
         </ul>
         <h3 className={styles.section}>New</h3>
         <form onSubmit={this.onFormSubmit.bind(this)}>
