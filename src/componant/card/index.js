@@ -19,6 +19,8 @@ class Card extends Component {
       todo: [],
       done: []
     };
+
+    this.putNewCard.bind(this);
   }
 
   toggleFoot() {
@@ -33,8 +35,6 @@ class Card extends Component {
       todo: todoList,
       done: doneList
     });
-
-    this.putNewCard.bind(this);
   }
 
   async putNewCard(listId, title) {
