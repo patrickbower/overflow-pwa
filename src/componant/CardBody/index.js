@@ -2,12 +2,19 @@ import React, { Component } from 'react';
 import styles from './index.css';
 
 class CardBody extends Component {
-  renderListItem(item) {
-    return Object.keys(item).map((key, index) => {
+  compleate(event, key) {
+    event.preventDefault();
+    console.log(key);
+  }
+
+  renderListItem(todoList) {
+    return Object.keys(todoList).map(key => {
       return (
-        <li className={styles.item} key={index}>
-          {item[key].name}
-          <a href="#">
+        <li className={styles.item} key={todoList[key].id}>
+          {todoList[key].name}
+          <a
+            href="#"
+            onClick={event => this.compleate.bind(this, todoList[key])}>
             <svg className={styles.iconTick}>
               <use xlinkHref="#icon-tick" />
             </svg>
@@ -18,10 +25,10 @@ class CardBody extends Component {
   }
 
   render() {
-    const { todo } = this.props;
+    const { todoList } = this.props;
     return (
       <ul className={styles.list}>
-        {this.renderListItem(todo)}
+        {this.renderListItem(todoList)}
       </ul>
     );
   }
