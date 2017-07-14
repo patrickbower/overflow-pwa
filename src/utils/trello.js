@@ -16,6 +16,10 @@ export function deleteCard(cardId) {
   return `/1/cards/${cardId}?`;
 }
 
+export function compleate(cardId) {
+  return `/1/cards/${cardId}/labels?color=green&name=done`;
+}
+
 export function query(action) {
   return `${config.url}${action}&key=${config.key}&token=${config.token}`;
 }

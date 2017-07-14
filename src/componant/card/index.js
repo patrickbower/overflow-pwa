@@ -10,6 +10,7 @@ import * as middleware_todo from '../../middleware/todo';
 import * as middleware_done from '../../middleware/done';
 import * as middleware_card from '../../middleware/card';
 import * as middleware_delete from '../../middleware/delete';
+import * as middleware_compleate from '../../middleware/compleate';
 
 class Card extends Component {
   constructor(props) {
@@ -56,6 +57,27 @@ class Card extends Component {
     });
   }
 
+  async compleateItem(card) {
+    await middleware_compleate.compleate(card.id);
+    this.changeItem(card);
+  }
+
+  changeItem(card) {
+    const completedCard = {};
+    completedCard[card.id] = card;
+
+    let newTodoList = this.state.todoList;
+    delete this.state.todoList[card.id];
+
+    let newDoneList = this.state.doneList;
+    Object.assign(newDoneList, completedCard);
+
+    this.setState({
+      todoList: newTodoList,
+      doneList: newDoneList
+    });
+  }
+
   componentDidMount() {
     this.getChildData();
   }
@@ -69,7 +91,10 @@ class Card extends Component {
         <CardHead list={list} key={list.id} />
         <Progress />
         <div className={styles.body}>
-          <CardBody todoList={todoList} />
+          <CardBody
+            todoList={todoList}
+            compleateItem={this.compleateItem.bind(this)}
+          />
           <button
             type="button"
             className={styles.edit}
