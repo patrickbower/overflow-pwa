@@ -17,8 +17,8 @@ class Card extends Component {
 
     this.state = {
       foot: this.props.footer,
-      todo: {},
-      done: {}
+      todoList: {},
+      doneList: {}
     };
 
     this.putNewCard.bind(this);
@@ -33,26 +33,26 @@ class Card extends Component {
     const doneList = await middleware_done.get(this.props.list.id);
 
     this.setState({
-      todo: todoList,
-      done: doneList
+      todoList: todoList,
+      doneList: doneList
     });
   }
 
   async putNewCard(listId, title) {
     const newCard = await middleware_card.put(listId, title);
     this.setState({
-      todo: Object.assign(this.state.todo, newCard)
+      todoList: Object.assign(this.state.todoList, newCard)
     });
   }
 
   async deleteCard(cardId, listId) {
     await middleware_delete.remove(cardId, listId);
-    this.removeItem(cardId, listId);
+    this.removeItem(cardId);
   }
 
-  removeItem(cardId, listId) {
+  removeItem(cardId) {
     this.setState({
-      done: delete this.state.done[cardId]
+      doneList: delete this.state.doneList[cardId]
     });
   }
 
@@ -62,14 +62,14 @@ class Card extends Component {
 
   render() {
     const { list } = this.props;
-    const { todo, done } = this.state;
+    const { todoList, doneList } = this.state;
 
     return (
       <div className={styles.card}>
         <CardHead list={list} key={list.id} />
         <Progress />
         <div className={styles.body}>
-          <CardBody todo={todo} />
+          <CardBody todoList={todoList} />
           <button
             type="button"
             className={styles.edit}
@@ -79,7 +79,7 @@ class Card extends Component {
         </div>
         <div className={this.state.foot ? styles.foot : styles.footHidden}>
           <CardFoot
-            done={done}
+            doneList={doneList}
             putNewCard={this.putNewCard.bind(this)}
             deleteCard={this.deleteCard.bind(this)}
             id={list.id}

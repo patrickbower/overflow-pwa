@@ -15,15 +15,15 @@ class CardFoot extends Component {
     this.props.deleteCard(card.id, this.props.id);
   }
 
-  renderListItems(done) {
-    return Object.keys(done).map((key, index) => {
+  renderListItems(doneList) {
+    return Object.keys(doneList).map((key, index) => {
       return (
         <li className={styles.itemDone} key={index}>
-          {done[key].name}
+          {doneList[key].name}
           <a
             href="#"
             onClick={event => {
-              this.deleteItem(event, done[key]);
+              this.deleteItem(event, doneList[key]);
             }}>
             <svg className={styles.iconClose}>
               <use xlinkHref="#icon-close" />
@@ -35,12 +35,12 @@ class CardFoot extends Component {
   }
 
   render() {
-    const { done } = this.props;
+    const { doneList } = this.props;
     return (
       <div>
         <h3 className={styles.section}>Compleate</h3>
         <ul className={styles.listDone}>
-          {this.renderListItems(done)}
+          {this.renderListItems(doneList)}
         </ul>
         <h3 className={styles.section}>New</h3>
         <form onSubmit={this.onFormSubmit.bind(this)}>
