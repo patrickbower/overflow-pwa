@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import styles from './index.css';
 
 class CardBody extends Component {
-  compleate(event, key) {
+  compleate(event, card) {
     event.preventDefault();
-    console.log(key);
+    this.props.compleateItem(card);
   }
 
   renderListItem(todoList) {
@@ -14,7 +14,9 @@ class CardBody extends Component {
           {todoList[key].name}
           <a
             href="#"
-            onClick={event => this.compleate.bind(this, todoList[key])}>
+            onClick={event => {
+              this.compleate(event, todoList[key]);
+            }}>
             <svg className={styles.iconTick}>
               <use xlinkHref="#icon-tick" />
             </svg>
