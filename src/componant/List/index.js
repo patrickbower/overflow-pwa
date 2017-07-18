@@ -14,7 +14,7 @@ class List extends Component {
   }
 
   async getData() {
-    const lists = await middleware_list.get();
+    const lists = await middleware_list.getMethod();
     this.setState({ lists: lists });
   }
 
