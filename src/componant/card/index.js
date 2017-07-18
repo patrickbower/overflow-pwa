@@ -29,16 +29,6 @@ class Card extends Component {
     this.setState({ foot: !this.state.foot });
   }
 
-  async getChildData() {
-    const todoList = await middleware_todo.get(this.props.list.id);
-    const doneList = await middleware_done.get(this.props.list.id);
-
-    this.setState({
-      todoList: todoList,
-      doneList: doneList
-    });
-  }
-
   async putNewCard(listId, title) {
     const newCard = await middleware_card.put(listId, title);
     this.setState({
@@ -52,8 +42,12 @@ class Card extends Component {
   }
 
   removeItem(cardId) {
+
+    let newDoneList = this.state.doneList;
+    delete this.state.doneList[cardId];
+
     this.setState({
-      doneList: delete this.state.doneList[cardId]
+      doneList: newDoneList
     });
   }
 
@@ -75,6 +69,16 @@ class Card extends Component {
     this.setState({
       todoList: newTodoList,
       doneList: newDoneList
+    });
+  }
+
+  async getChildData() {
+    const todoList = await middleware_todo.get(this.props.list.id);
+    const doneList = await middleware_done.get(this.props.list.id);
+
+    this.setState({
+      todoList: todoList,
+      doneList: doneList
     });
   }
 

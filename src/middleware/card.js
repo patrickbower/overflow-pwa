@@ -5,7 +5,8 @@ export function put(listId, title) {
     const newCard = {};
     newCard[data.id] = {
       label: 'todo',
-      name: data.name
+      name: data.name,
+      id: data.id
     };
     return newCard;
   });
