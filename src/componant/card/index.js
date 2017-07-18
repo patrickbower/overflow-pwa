@@ -37,7 +37,7 @@ class Card extends Component {
   }
 
   async deleteCard(cardId, listId) {
-    await middleware_delete.remove(cardId, listId);
+    await middleware_delete.deleteMethod(cardId, listId);
     this.removeItem(cardId);
   }
 
@@ -73,8 +73,8 @@ class Card extends Component {
   }
 
   async getChildData() {
-    const todoList = await middleware_todo.get(this.props.list.id);
-    const doneList = await middleware_done.get(this.props.list.id);
+    const todoList = await middleware_todo.getMethod(this.props.list.id);
+    const doneList = await middleware_done.getMethod(this.props.list.id);
 
     this.setState({
       todoList: todoList,

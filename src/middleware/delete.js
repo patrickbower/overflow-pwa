@@ -1,7 +1,9 @@
 import * as trello from '../utils/trello';
+import * as fetch from '../utils/fetch';
 
-export function remove(cardId) {
-  return trello.remove(trello.deleteCard(cardId)).then(data => {
-    return true;
-  });
+export function deleteMethod(cardId) {
+  return fetch.request(fetch.constructor(trello.deleteCard(cardId), 'DELETE'))
+    .then(data => {
+      return true;
+    });
 }
