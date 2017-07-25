@@ -2,8 +2,15 @@ import React, { Component } from "react";
 import styles from "./index.css";
 
 class Progress extends Component {
+
+
   render() {
-    return <div className={styles.progress} />;
+    const { progress } = this.props;
+    return (
+      <div className={styles.bar}>
+        <div className={styles.progress} style={{width: `${progress}%`}} />
+      </div>
+    )
   }
 }
 
