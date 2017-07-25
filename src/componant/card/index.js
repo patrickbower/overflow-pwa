@@ -86,14 +86,22 @@ class Card extends Component {
     this.getChildData();
   }
 
+  progress() {
+    const done = Object.keys(this.state.doneList).length;
+    const todo = Object.keys(this.state.todoList).length
+    const total = todo + done;
+    return Math.floor(done / total * 100);
+  }
+
   render() {
     const { list } = this.props;
     const { todoList, doneList } = this.state;
+    const progress = this.progress();
 
     return (
       <div className={styles.card}>
         <CardHead list={list} key={list.id} />
-        <Progress />
+        <Progress progress={progress}/>
         <div className={styles.body}>
           <CardBody
             todoList={todoList}
